@@ -12,7 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 from concurrent.futures import ProcessPoolExecutor, as_completed
-from RevisitSimulation.src.revisit_lib import RevisitCalc, ReShape
+from revisit_lib import RevisitCalc, ReShape
 
 
 def compute_case(
@@ -70,7 +70,7 @@ class RevisitSimulation:
         # Altitude
         self.h_min = config["orbit"].get("altitude_min", 100e3)
         self.h_max = config["orbit"].get("altitude_max", self.h_min)
-        self.h_delta = config["orbit"].get("h_res", 10e3)
+        self.h_delta = config["orbit"].get("h_res", 1e3)
 
         # Inclination for non-SSO
         self.inc_min = config["orbit"].get("inclination_min", 60)
